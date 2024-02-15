@@ -1,12 +1,13 @@
-import React from "react"
+import React from "react";
 import { Button } from "@material-tailwind/react";
-
+import { Users } from "./pages";
 
 function App() {
-
   return (
-    <Button>Hello world!</Button> 
-  )
+    <div className="py-5 px-10 ">
+      <Users />
+    </div>
+  );
 }
 
-export default App
+export default App;
