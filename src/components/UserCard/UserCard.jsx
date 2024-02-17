@@ -9,6 +9,9 @@ import {
 import { makeFirstLetterCapital, backgroundColor } from "../../config";
 
 const UserCard = ({ name, hairColor, skinColor, gender, vehicles }) => {
+
+  console.log("Bg color", backgroundColor(hairColor))
+
   return (
     <Card
       className={`w-80 mb-4`}
@@ -19,6 +22,7 @@ const UserCard = ({ name, hairColor, skinColor, gender, vehicles }) => {
               ? "#F2E9B6"
               : backgroundColor(hairColor)
             : "#ffffff",
+        color: backgroundColor(hairColor) !== "black" ? "#000" : "#fff"
       }}
     >
       <CardHeader floated={false} className="h-2/4">
@@ -28,51 +32,39 @@ const UserCard = ({ name, hairColor, skinColor, gender, vehicles }) => {
         />
       </CardHeader>
       <CardBody>
-        <Typography variant="h4" className="mb-2 text-center" color="blue-gray">
+        <Typography variant="h4" className="mb-2 text-center">
           {name}
         </Typography>
         <div>
           <div className="flex justify-between items-center">
-            <Typography color="blue-gray" className="font-medium" textGradient>
+            <Typography className="font-medium opacity-70">
               Gender
             </Typography>
-            <Typography
-              variant="h5"
-              color="blue-gray"
-              className="mb-2 text-center"
-            >
+            <Typography variant="h6" className=" mb-2 text-center">
               {gender !== "n/a" ? makeFirstLetterCapital(gender) : "N/A"}
             </Typography>
           </div>
           <div className="flex justify-between items-center">
-            <Typography color="blue-gray" className="font-medium" textGradient>
+            <Typography className="font-medium opacity-70">
               Hair Color
             </Typography>
-            <Typography
-              variant="h5"
-              color="blue-gray"
-              className="mb-2 text-center"
-            >
+            <Typography variant="h6" className=" mb-2 text-center">
               {hairColor !== "n/a" ? makeFirstLetterCapital(hairColor) : "N/A"}
             </Typography>
           </div>
           <div className="flex justify-between items-center">
-            <Typography color="blue-gray" className="font-medium" textGradient>
+            <Typography className="font-medium opacity-70">
               Skin Color
             </Typography>
-            <Typography
-              variant="h5"
-              color="blue-gray"
-              className="mb-2 text-center"
-            >
+            <Typography variant="h6" className=" mb-2 text-center">
               {skinColor !== "n/a" ? makeFirstLetterCapital(skinColor) : "N/A"}
             </Typography>
           </div>
           <div className="flex justify-between items-center">
-            <Typography color="blue-gray" className="font-medium" textGradient>
+            <Typography className="font-medium opacity-70">
               Count of Vehicles
             </Typography>
-            <Typography variant="h5" color="blue-gray" className=" text-center">
+            <Typography variant="h6" className="  text-center">
               {vehicles}
             </Typography>
           </div>

@@ -2,16 +2,26 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { API_URL } from "../../config";
 import { UserCard } from "../../components";
+import { Input } from "@material-tailwind/react";
 
 const Users = () => {
   const [usersData, setUsersData] = useState([]);
+  const [search, setSearch] = useState("");
+
+  const handleSearch = (e) => {
+    setSearch(e.target.value);
+  };
+
+  const filteredData = usersData.filter((user) =>
+    user?.name.toLowerCase().includes(search.toLowerCase())
+  );
 
   const fetchUsersData = async () => {
     try {
       const response = await axios.get(API_URL.USERS_API);
       const data = await response.data.results;
       setUsersData(data);
-      console.log(data)
+      console.log(data);
     } catch (e) {
       console.error(e);
     }
@@ -23,8 +33,11 @@ const Users = () => {
 
   return (
     <>
-      <div className="flex justify-center items-center gap-6 flex-wrap">
-        {usersData?.map((user, index) => (
+      <div className="md:w-2/3 mx-auto bg-white rounded-md">
+        <Input label="Search user by name" onChange={handleSearch}/>
+      </div>
+      <div className="flex justify-center items-center gap-6 mt-3 flex-wrap">
+        {filteredData?.map((user, index) => (
           <UserCard
             key={index}
             name={user?.name}

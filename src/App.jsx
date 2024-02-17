@@ -4,7 +4,7 @@ import { Users } from "./pages";
 
 function App() {
   return (
-    <div className="py-5 px-10 ">
+    <div className="py-5">
       <Users />
     </div>
   );
