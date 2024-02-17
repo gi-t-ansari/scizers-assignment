@@ -33,10 +33,10 @@ const Users = () => {
 
   return (
     <>
-      <div className="md:w-2/3 mx-auto bg-white rounded-md">
+      <div className="md:w-2/3 rounded-md bg-white md:mx-auto mx-4">
         <Input label="Search user by name" onChange={handleSearch}/>
       </div>
-      <div className="flex justify-center items-center gap-6 mt-3 flex-wrap">
+      <div className="flex justify-center items-center gap-6 mt-5 flex-wrap">
         {filteredData?.map((user, index) => (
           <UserCard
             key={index}
@@ -47,6 +47,8 @@ const Users = () => {
             vehicles={user?.vehicles?.length}
           />
         ))}
+        {search && filteredData.length === 0 && <p>No user found</p>}
+        {!usersData && <p>Loading....</p>}
       </div>
     </>
   );

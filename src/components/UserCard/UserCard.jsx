@@ -10,8 +10,6 @@ import { makeFirstLetterCapital, backgroundColor } from "../../config";
 
 const UserCard = ({ name, hairColor, skinColor, gender, vehicles }) => {
 
-  console.log("Bg color", backgroundColor(hairColor))
-
   return (
     <Card
       className={`w-80 mb-4`}
